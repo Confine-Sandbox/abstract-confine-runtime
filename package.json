@@ -1,0 +1,20 @@
+{
+  "name": "abstract-confine-runtime",
+  "version": "0.0.1",
+  "description": "The base class for confine runtimes. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Paul Frazee <pfrazee@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/confine-sandbox/abstract-confine-runtime.git"
+  },
+  "bugs": {
+    "url": "https://github.com/confine-sandbox/abstract-confine-runtime/issues"
+  },
+  "homepage": "https://github.com/confine-sandbox/abstract-confine-runtime#readme"
+}
