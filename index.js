@@ -1,6 +1,7 @@
 module.exports = class AbstractConfineRuntime {
-  constructor (sourcePath, opts = {}) {
-    this.sourcePath = sourcePath
+  constructor (opts = {}) {
+    this.source = opts.source
+    this.ipc = opts.ipc
     this.opts = opts
   }
 
@@ -11,5 +12,9 @@ module.exports = class AbstractConfineRuntime {
   }
 
   async close () {
+  }
+
+  async handleRequest (body) {
+
   }
 }

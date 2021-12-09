@@ -13,8 +13,9 @@ const fs = require('fs')
 const AbstractConfineRuntime = require('abstract-confine-runtime')
 
 module.exports = class MyConfineRuntime extends AbstractConfineRuntime {
-  constructor (scriptPath, opts) {
-    super(scriptPath, opts)
+  constructor (opts) {
+    super(opts)
+    // sets this.source, this.ipc, and this.opts
   }
 
   async init () {
@@ -27,6 +28,10 @@ module.exports = class MyConfineRuntime extends AbstractConfineRuntime {
 
   async close () {
     // close the script (if possible)
+  }
+
+  async handleRequest (body) {
+    // handle requests sent to the runtime by the host environment
   }
 }
 ```
