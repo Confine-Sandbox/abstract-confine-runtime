@@ -20,6 +20,11 @@ module.exports = class MyConfineRuntime extends AbstractConfineRuntime {
 
   async init () {
     // do any init that's needed prior to syscalls are restricted
+
+    // be sure to emit a 'closed' event if possible
+    this.myCustomProcess.on('closed', () => {
+      this.emit('closed', exitCode) // include unix-style exit code as first param
+    })
   }
 
   async run () {

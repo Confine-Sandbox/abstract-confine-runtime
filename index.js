@@ -1,5 +1,8 @@
-module.exports = class AbstractConfineRuntime {
+const EventEmitter = require('events')
+
+module.exports = class AbstractConfineRuntime extends EventEmitter {
   constructor (opts = {}) {
+    super()
     this.source = opts.source
     this.ipc = opts.ipc
     this.opts = opts
