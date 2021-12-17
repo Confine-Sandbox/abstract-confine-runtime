@@ -1,7 +1,7 @@
 {
   "name": "abstract-confine-runtime",
   "version": "0.2.0",
-  "description": "The base class for confine runtimes. ",
+  "description": "The base class for confine runtimes.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

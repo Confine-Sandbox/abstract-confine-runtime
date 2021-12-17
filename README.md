@@ -10,12 +10,12 @@ Example usage:
 
 ```js
 const fs = require('fs')
-const AbstractConfineRuntime = require('abstract-confine-runtime')
+const { AbstractConfineRuntime, APIDescription, APIObject, APIMethod, MethodNotFound } = require('abstract-confine-runtime')
 
 module.exports = class MyConfineRuntime extends AbstractConfineRuntime {
   constructor (opts) {
     super(opts)
-    // sets this.source, this.ipc, and this.opts
+    // ^ sets this.source, and this.opts
   }
 
   async init () {
@@ -35,10 +35,33 @@ module.exports = class MyConfineRuntime extends AbstractConfineRuntime {
     // close the script (if possible)
   }
 
-  async handleRequest (body) {
-    // handle requests sent to the runtime by the host environment
+  describeAPI () {
+    // return a tree structure to describe the api, see below
+    return new APIDescription()
+  }
+
+  async handleAPICall (methodName, params) {
+    // handle any API calls sent to the runtime by the host environment
+    // if the method does not exist, throw MethodNotFound
+    throw new MethodNotFound()
   }
 }
+```
+
+The `describeAPI()` method needs to provide a tree of `APIDescription`, `APIObject`, and `APIMethod` objects, like so:
+
+```js
+/* The API we want to represent: */
+// hello()
+// sub.method()
+// zed()
+return new APIDescription([
+  new APIMethod('hello'),
+  new APIObject('sub', [
+    new APIMethod('method')
+  ]),
+  new APIMethod('zed')
+])
 ```
 
 ## License
