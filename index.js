@@ -16,6 +16,9 @@ exports.AbstractConfineRuntime = class AbstractConfineRuntime extends EventEmitt
   async close () {
   }
 
+  configure (opts) {
+  }
+
   describeAPI () {
     return new APIDescription()
   }

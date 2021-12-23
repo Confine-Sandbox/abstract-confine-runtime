@@ -35,6 +35,10 @@ module.exports = class MyConfineRuntime extends AbstractConfineRuntime {
     // close the script (if possible)
   }
 
+  configure (opts) {
+    // change any options after initialization
+  }
+
   describeAPI () {
     // return a tree structure to describe the api, see below
     return new APIDescription()
